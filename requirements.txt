@@ -1,0 +1,8 @@
+streamlit
+flask
+google-generativeai
+pypdf
+feedparser
+python-dotenv
+twilio
+gunicorn
