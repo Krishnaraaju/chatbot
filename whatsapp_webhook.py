@@ -29,7 +29,7 @@ def whatsapp():
     msg = resp.message()
     msg.body(ai_reply)
 
-    return str(resp), 200, {'Content-Type': 'application/xml'}
+    return str(resp), 200, {'Content-Type': 'text/xml'}
 
 @app.route('/', methods=['GET'])
 def home():
