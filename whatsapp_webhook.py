@@ -22,13 +22,14 @@ def whatsapp():
 
     # Get response from RAG Engine
     ai_reply = get_ai_response(incoming_msg, news_alert=current_alert)
+    print(f"DEBUG - Generated AI Reply: {ai_reply}")
 
     # Create Twilio Response
     resp = MessagingResponse()
     msg = resp.message()
     msg.body(ai_reply)
 
-    return str(resp)
+    return str(resp), 200, {'Content-Type': 'application/xml'}
 
 @app.route('/', methods=['GET'])
 def home():
