@@ -48,6 +48,11 @@ def load_knowledge_base(data_dir="gov_data"):
             
     return knowledge_text
 
+# Load knowledge base once at startup
+print("Initializing Knowledge Base...")
+KNOWLEDGE_BASE_CACHE = load_knowledge_base()
+print("Knowledge Base Loaded.")
+
 def get_ai_response(user_query, news_alert=None):
     """
     Generates a response using Gemini 1.5 Flash.
@@ -55,9 +60,8 @@ def get_ai_response(user_query, news_alert=None):
     """
     
     # Load the knowledge base (in a real app, this should be cached/indexed)
-    # For this hackathon demo, loading on each call is acceptable if PDFs are small,
-    # but ideally we load it once globally. We'll load it here for simplicity.
-    knowledge_context = load_knowledge_base()
+    # CACHED: We load this once at startup now.
+    knowledge_context = KNOWLEDGE_BASE_CACHE
     
     model = genai.GenerativeModel('gemini-2.5-flash')
     
