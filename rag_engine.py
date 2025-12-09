@@ -63,7 +63,7 @@ def get_ai_response(user_query, news_alert=None):
     # CACHED: We load this once at startup now.
     knowledge_context = KNOWLEDGE_BASE_CACHE
     
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    model = genai.GenerativeModel('gemini-2.5-pro')
     
     system_prompt = """You are Swasthya Sathi, a helpful health companion for rural Odisha.
     
